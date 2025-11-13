@@ -75,4 +75,14 @@ This project demonstrates how to interact with the [PokeAPI](https://pokeapi.co/
 - Include stats or evolution chain data.
 - Visualize types or abilities using matplotlib.
 
+---
+
+## Contributing
+Contributions to this project are welcome! If you'd like to contribute, please follow these steps:
+
+1. Fork the repository.
+2. Create a new branch for your feature or bug fix.
+3. Make your changes and submit a pull request.
+
+
 Happy Coding!
