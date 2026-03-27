@@ -36,11 +36,11 @@ def extract_characteristics(data):
     height = data['height']
     weight = data['weight']
     types = [t['type']['name'] for t in data['types']]
-    abilities = [a['ability']['name'] for a in data['abilities']]
+    # abilities = [a['ability']['name'] for a in data['abilities']]
     return {
         'name': name,
         'height': height,
         'weight': weight,
         'types': ", ".join(types),
-        'abilities': ", ".join(abilities)
+        # 'abilities': ", ".join(abilities)
     }
