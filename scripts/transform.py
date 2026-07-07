@@ -16,8 +16,10 @@ extract_characteristics(pokemon_data)
 }
 """
 
+from typing import Any
 
-def extract_characteristics(data):
+
+def extract_characteristics(data: dict[str, Any]) -> dict[str, Any]:
     """
         Extract key characteristics from a Pokémon data dictionary.
 
@@ -36,11 +38,11 @@ def extract_characteristics(data):
     height = data['height']
     weight = data['weight']
     types = [t['type']['name'] for t in data['types']]
-    # abilities = [a['ability']['name'] for a in data['abilities']]
+    abilities = [a['ability']['name'] for a in data['abilities']]
     return {
         'name': name,
         'height': height,
         'weight': weight,
         'types': ", ".join(types),
-        # 'abilities': ", ".join(abilities)
+        'abilities': ", ".join(abilities)
     }

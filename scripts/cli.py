@@ -7,8 +7,9 @@ saved to a CSV file using the `--output` argument.
 """
 
 import argparse
+import sys
 from fetch import fetch_and_format
-import pandas as pd
+
 
 def run_cli() -> None:
     """
@@ -34,5 +35,6 @@ def run_cli() -> None:
         if args.output:
             df.to_csv(args.output, index=False)
             print(f"Saved to {args.output}")
-    except Exception as e:
+    except ValueError as e:
         print(f"Error: {e}")
+        sys.exit(1)
