@@ -33,17 +33,33 @@ This project demonstrates how to interact with the [PokeAPI](https://pokeapi.co/
 
 2. **Run from the command line**:
     ```bash
-   cd scripts 
-   python main.py pikachu
+    cd scripts
+
+    # Fetch and display a Pokémon's characteristics
+    python main.py pikachu
+
+    # Save results to a CSV file
+    python main.py pikachu --output pikachu.csv
     ```
 
-3. **Example Output**:
+3. **Arguments**:
+
+    | Argument | Required | Description |
+    |----------|----------|-------------|
+    | `name`   | Yes      | Name of the Pokémon to look up |
+    | `--output <path>` | No | Save results as a CSV file to the given path |
+
+4. **Example Output**:
     ```
-    Name: pikachu
-    Height: 4
-    Weight: 60
-    Types: electric
-    Abilities: static, lightning-rod
+          name  height  weight      types          abilities
+    0  pikachu       4      60   electric  static, lightning-rod
+    ```
+
+    When using `--output`:
+    ```
+          name  height  weight      types          abilities
+    0  pikachu       4      60   electric  static, lightning-rod
+    Saved to pikachu.csv
     ```
 
 ---
