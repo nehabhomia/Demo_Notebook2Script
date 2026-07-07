@@ -24,7 +24,11 @@ This project demonstrates how to interact with the [PokeAPI](https://pokeapi.co/
 
 1. **Install dependencies** (if needed):
     ```bash
-    pip install requirements.txt
+    # For running the script only
+    pip install -r requirements.txt
+
+    # For running the Jupyter notebook
+    pip install -r requirements-dev.txt
     ```
 
 2. **Run from the command line**:
