@@ -35,6 +35,9 @@ This project demonstrates how to interact with the [PokeAPI](https://pokeapi.co/
     ```bash
     cd scripts
 
+    # Show help and available arguments
+    python main.py --help
+
     # Fetch and display a Pokémon's characteristics
     python main.py pikachu
 
@@ -48,6 +51,7 @@ This project demonstrates how to interact with the [PokeAPI](https://pokeapi.co/
     |----------|----------|-------------|
     | `name`   | Yes      | Name of the Pokémon to look up |
     | `--output <path>` | No | Save results as a CSV file to the given path |
+    | `--help` | No | Show usage information and exit |
 
 4. **Example Output**:
     ```
