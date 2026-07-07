@@ -7,8 +7,9 @@ saved to a CSV file using the `--output` argument.
 """
 
 import argparse
+import sys
 from fetch import fetch_and_format
-import pandas as pd
+
 
 def run_cli() -> None:
     """
@@ -22,9 +23,22 @@ def run_cli() -> None:
         $ python cli.py pikachu
         $ python cli.py bulbasaur --output bulbasaur.csv
         """
-    parser = argparse.ArgumentParser(description="Fetch Pokémon characteristics from PokeAPI.")
-    parser.add_argument("name", type=str, help="Name of the Pokémon")
-    parser.add_argument("--output", type=str, help="Optional path to save results as CSV")
+    parser = argparse.ArgumentParser(
+        description="Fetch and display Pokémon characteristics from the PokeAPI.",
+        epilog=(
+            "Examples:\n"
+            "  python main.py pikachu\n"
+            "  python main.py bulbasaur --output bulbasaur.csv\n"
+        ),
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+    )
+    parser.add_argument("name", type=str, help="Name of the Pokémon to look up (e.g. pikachu)")
+    parser.add_argument(
+        "--output",
+        type=str,
+        metavar="FILE",
+        help="Path to save the results as a CSV file (e.g. --output results.csv)",
+    )
     args = parser.parse_args()
 
     try:
@@ -34,5 +48,6 @@ def run_cli() -> None:
         if args.output:
             df.to_csv(args.output, index=False)
             print(f"Saved to {args.output}")
-    except Exception as e:
+    except ValueError as e:
         print(f"Error: {e}")
+        sys.exit(1)

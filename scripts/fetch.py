@@ -31,8 +31,10 @@ def get_pokemon_data(name: str) -> dict[str, Any]:
             If no Pokémon with the given name is found.
         """
     url = f"https://pokeapi.co/api/v2/pokemon/{name.lower()}"
-    response = requests.get(url)
-    if response.status_code != 200:
+    try:
+        response = requests.get(url, timeout=10)
+        response.raise_for_status()
+    except requests.exceptions.HTTPError:
         raise ValueError(f"Pokémon '{name}' not found.")
     return response.json()
 

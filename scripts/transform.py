@@ -16,8 +16,10 @@ extract_characteristics(pokemon_data)
 }
 """
 
+from typing import Any
 
-def extract_characteristics(data):
+
+def extract_characteristics(data: dict[str, Any]) -> dict[str, Any]:
     """
         Extract key characteristics from a Pokémon data dictionary.
 
